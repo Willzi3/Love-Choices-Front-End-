@@ -6,6 +6,7 @@
             <input class="form-input" type="text" name="full_name" required v-model="full_name" placeholder="Full Name"/>
             <input class="form-input" type="text" name="email" required v-model="email" placeholder="Email:"/>
             <input class="form-input" type="text" name="password" required v-model="password" placeholder="Password:"/>
+            <input class="form-input" type="text" name="image" required v-model="image" placeholder="Image:" />
              <input class="user-type" type="text" name="user_type" required v-model="user_type"  readonly />
             <input class="form-btn" type="submit" value="Register" />
            <hr>
@@ -32,6 +33,8 @@ export default {
       email: "",
       password: "",
       user_type: "user",
+      image: "",
+      
     };
   },
   methods: {
@@ -41,6 +44,7 @@ export default {
         email: this.email,
         password: this.password,
         user_type: this.user_type,
+        image: this.image,
       });
     },
   },
@@ -48,7 +52,7 @@ export default {
 </script>
 <style scoped>
 .container{
-  height: 86vh;
+  height: 89vh;
   display: flex;
   justify-content: center;
   align-items: center;

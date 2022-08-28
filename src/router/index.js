@@ -23,7 +23,37 @@ const routes = [
     path: '/profile',
     name: 'Profile',
     component: () => import( '../views/Profile.vue')
-  }
+  },
+  {
+    path: '/search',
+    name: 'Search',
+    component: () => import( '../views/Search.vue')
+  },
+  {
+    path: '/connections',
+    name: 'Connections',
+    component: () => import( '../views/Connections.vue')
+  },
+  {
+    path: '/matches',
+    name: 'Matches',
+    component: () => import( '../views/Matches.vue')
+  },
+  {
+    path: '/messages',
+    name: 'Messages',
+    component: () => import( '../views/Messages.vue')
+  },
+  {
+    path: '/potential',
+    name: 'Potential',
+    component: () => import( '../views/Potential.vue')
+  },
+  {
+    path: '/settings',
+    name: 'Settings',
+    component: () => import( '../views/Settings.vue')
+  },
 ]
 
 const router = createRouter({

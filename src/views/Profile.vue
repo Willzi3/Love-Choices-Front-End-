@@ -1,21 +1,23 @@
 <template>
+<div class="profile-name" v-if="user">
+<p>{{ user.full_name }}</p></div>
  <div class="container">
  <div class="row">
   <div class="col-1">
     <div class="navigation">
-      <router-link to="#">Link-1</router-link>
-      <router-link to="#">Link-2</router-link>
-      <router-link to="#">Link-3</router-link>
-      <router-link to="#">Link-4</router-link>
-      <router-link to="#">Link-5</router-link>
-      <router-link to="#">Link-6</router-link>
-      <router-link to="#">Link-7</router-link>
-      <router-link to="#">Link-8</router-link>
+      <router-link to="/search">Search</router-link>
+      <router-link to="/connections">Connections</router-link>
+      <router-link to="/matches">Matches</router-link>
+      <router-link to="/messages">Messages</router-link>
+      <router-link to="/potential">Potential</router-link>
+      <router-link to="/settings">Settings</router-link>
     </div>
   </div>
   <div class="col-2">
-    <div class="about-me-1"></div>
-    <div class="about-me-2"></div>
+    <div class="about-me">
+      
+    </div>
+   
   </div>
  </div>
  </div>
@@ -23,19 +25,26 @@
 
 <script>
 export default {
+ computed: {
+    user() {
+      return this.$store.state.user
+    },
+  },
 
+  mounted() {
+    this.$store.dispatch("getUser");
+  }
 }
 </script>
 
 <style scoped>
 .container{
-  height: 86.5vh;
+  height: 89vh;
   width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
-  border: 1px solid black;
 }
 .row{
   width: 80%;
@@ -66,10 +75,15 @@ export default {
   gap: 10px;
 }
 .navigation a{
-  border: 1px solid black;
   border-radius: 6px;
   width: 90%;
   height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: salmon;
+  text-decoration: none;
+  color: white;
 }
 .col-2{
   width: 60%;
@@ -81,14 +95,22 @@ export default {
   align-items: center;
   gap: 10px;
 }
-.about-me-1{
+.about-me{
   width: 90%;
-  height: 30%;
+  height: 90%;
   border: 1px solid black;
+  border-radius: 6px;
 }
-.about-me-2{
-  width: 90%;
-  height: 60%;
-  border: 1px solid black;
+.profile-name{
+  height: 50px;
+  width: 91%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 10px;
+}
+.profile-name p {
+  color: salmon;
+  font-weight: bold;
 }
 </style>

@@ -5,19 +5,25 @@ export default createStore({
     user: null,
     users: null,
     token: null,
-    books: null,
-    book: null,
+    post: null,
+    posts: null,
   },
   mutations: {
     setUser: (state, user) => {
-      state.user = user  ;
+      state.user = user;
     },
     setUsers: (state, users) => {
-      state.users = users  ;
+      state.users = users;
     },
     setToken: (state, token) => {
-      state.token = token  ;
-    }
+      state.token = token;
+    },
+    setPost: (state, post) => {
+      state.post = post;
+    },
+    setPosts: (state, posts) => {
+      state.posts = posts;
+    },
   },
   actions: {
     login: async (context, payload) => {
@@ -47,7 +53,8 @@ export default createStore({
             "x-auth-token": data.token
           }
         }).then((res) => res.json()).then((data) => {
-          context.commit('setUser', data.user)
+          context.commit('setUser', data)
+          console.log(data)
           router.push('/profile', alert("Successfully Logged In:"))
         })
       }
@@ -62,7 +69,8 @@ export default createStore({
             full_name: payload.full_name,
             email: payload.email,
             password: payload.password,
-            user_type: "user"
+            user_type: "user",
+            image: payload.image
         }),
       headers: {
         "Content-type": "application/json",
@@ -82,6 +90,18 @@ export default createStore({
       fetch("https://love-choices-api.herokuapp.com/users/" +id)
         .then((response) => response.json())
         .then((user) => context.commit("setUser", user[0]));
+    },
+    //add Post
+    addPost: async (context, post) => {
+      fetch("https://scentsation.herokuapp.com/users/posts", {
+        method: "POST",
+        body: JSON.stringify(post),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then((response) => response.json())
+        .then((post) => context.dispatch("getPost", post));
     },
   }
 })
