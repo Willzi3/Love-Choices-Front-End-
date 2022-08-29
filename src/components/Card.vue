@@ -1,14 +1,14 @@
 <template>
-  <!-- <router-link
+  <router-link
     class="product_box"
-    :to="{ name: 'ProductDetails', params: { id: Product.id } }"
-  > -->
+    :to="{ name: 'userDetails', params: { id: user.user_id } }"
+  >
     <div class="card">
       <img class="product_img" :src="user.image" />
       <p class="product_title">{{ user.full_name }}</p>
        <p class="product_price">{{ user.description }}</p>
     </div>
-  <!-- </router-link> -->
+  </router-link>
 </template>
 <script>
 export default {

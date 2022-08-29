@@ -9,7 +9,6 @@
    v-for="user of filteredUsers" 
    :key="user.id" 
    :user="user"/>
-
   </div>
  </div>
 </template>

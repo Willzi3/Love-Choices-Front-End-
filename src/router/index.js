@@ -54,6 +54,11 @@ const routes = [
     name: 'Settings',
     component: () => import( '../views/Settings.vue')
   },
+  {
+    path: '/search/:id',
+    name: 'userDetails',
+    component: () => import( '../views/userDetails.vue')
+  }
 ]
 
 const router = createRouter({
