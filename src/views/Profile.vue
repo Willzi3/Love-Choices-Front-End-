@@ -1,6 +1,6 @@
 <template>
-<div class="profile-name" v-if="user">
-<p>{{ user.full_name }}</p></div>
+<!-- <div class="profile-name" v-if="user">
+<p>{{ user.full_name }}</p></div> -->
  <div class="container">
  <div class="row">
   <div class="col-1">
@@ -14,8 +14,9 @@
     </div>
   </div>
   <div class="col-2">
-    <div class="about-me">
-      
+    <div class="about-me"  v-if="user">
+      <img :src="user.image" />
+      {{ user.full_name }}
     </div>
    
   </div>

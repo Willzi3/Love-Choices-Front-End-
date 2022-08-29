@@ -53,11 +53,10 @@ export default createStore({
             "x-auth-token": data.token
           }
         }).then((res) => res.json()).then((data) => {
-          context.commit('setUser', data)
-          console.log(data)
+          context.commit('setUser', data.user)
           router.push('/profile', alert("Successfully Logged In:"))
         })
-      }
+      } 
       else {
         alert(data)
       }

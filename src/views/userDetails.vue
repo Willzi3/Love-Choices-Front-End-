@@ -15,7 +15,7 @@
 export default {
    props: ["id"],
    computed: {
-    users() {
+    user() {
         return this.$store.state.user;
     },
    },

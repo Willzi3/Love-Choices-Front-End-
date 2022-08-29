@@ -1,5 +1,10 @@
 <template>
   <div class="container">
+    <div class="inbox">
+      <div class="inbox-title">
+        <h1>Inbox:</h1>
+      </div>
+    </div>
     <div class="message-box">
       <div class="message">
         <input class="message-input-1" type="text" name="message" id="message" placeholder="Message:" />
@@ -21,6 +26,22 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 10px;
+  }
+  .inbox{
+  display: flex;
+  justify-content: center;
+  border: 1px solid black;
+  height: 500px;
+  width: 500px;
+  padding: 10px;
+  }
+  .inbox-title{
+     display: flex;
+  justify-content: center;
+    width: 98%;
+    height: 50px;
+    border: 1px solid black
   }
 .message-box{
   border: 1px solid black;
