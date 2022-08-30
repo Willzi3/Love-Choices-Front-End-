@@ -1,7 +1,8 @@
 <template>
-<!-- <div class="profile-name" v-if="user">
-<p>{{ user.full_name }}</p></div> -->
  <div class="container">
+  <div class="profile-name">
+  <p>{{ user.full_name }}</p>
+</div>
  <div class="row">
   <div class="col-1">
     <div class="navigation">
@@ -14,8 +15,8 @@
     </div>
   </div>
   <div class="col-2">
-    <div class="about-me"  v-if="user">
-      <img :src="user.image" />
+    <div class="about-me">
+      {{ user.description }}
       {{ user.full_name }}
     </div>
    
@@ -31,7 +32,6 @@ export default {
       return this.$store.state.user
     },
   },
-
   mounted() {
     this.$store.dispatch("getUser");
   }
@@ -43,6 +43,7 @@ export default {
   height: 89vh;
   width: 100vw;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 10px;
