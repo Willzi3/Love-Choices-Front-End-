@@ -27,7 +27,7 @@ export default createStore({
   },
   actions: {
     login: async (context, payload) => {
-      let res = await fetch("https://love-choices-api.herokuapp.com/users/login", {
+      let res = await fetch("ttps://compify-backend.herokuapp.com/users/login", {
         method: 'POST',
         headers: {
           "Content-Type": "application/json",
@@ -47,7 +47,7 @@ export default createStore({
 
         // Verify token
         // 
-        fetch('https://love-choices-api.herokuapp.com/users/users/verify', {
+        fetch('ttps://compify-backend.herokuapp.com/users/users/verify', {
           headers: {
             "Content-Type": "application/json",
             "x-auth-token": data.token
@@ -63,7 +63,7 @@ export default createStore({
       }
     },
     register: async (context, payload) => {
-      fetch("https://love-choices-api.herokuapp.com/users/register", {
+      fetch("ttps://compify-backend.herokuapp.com/users/register", {
         method: 'POST',
         body: JSON.stringify({
             full_name: payload.full_name,
@@ -82,18 +82,18 @@ export default createStore({
 
         },
     getUsers: async (context) => {
-      fetch("https://love-choices-api.herokuapp.com/users")
+      fetch("ttps://compify-backend.herokuapp.com/users")
         .then((response) => response.json())
         .then((json) => context.commit("setUsers", json));
     },
     getUser: async (context, id) => {
-      fetch("https://love-choices-api.herokuapp.com/users/" +id)
+      fetch("ttps://compify-backend.herokuapp.com/users/" +id)
         .then((response) => response.json())
         .then((user) => context.commit("setUser", user[0]));
     },
     //add Post
     addPost: async (context, post) => {
-      fetch("https://scentsation.herokuapp.com/users/posts", {
+      fetch("ttps://compify-backend.herokuapp.com/users/posts", {
         method: "POST",
         body: JSON.stringify(post),
         headers: {
